@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wise Tales — Privacy Policy</title>
+<style>
+  :root {
+    --fg: #1c1c1e;
+    --muted: #6b7280;
+    --bg: #ffffff;
+    --panel: #f4f4f5;
+    --border: #e4e4e7;
+    --accent: #b07d2a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --fg: #f4f4f5;
+      --muted: #a1a1aa;
+      --bg: #0b0b0c;
+      --panel: #18181b;
+      --border: #27272a;
+      --accent: #e0a94b;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  h1 {
+    font-size: 2.1rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0 0 8px;
+  }
+  h2 {
+    font-size: 1.25rem;
+    margin: 40px 0 10px;
+    letter-spacing: -0.01em;
+  }
+  h3 {
+    font-size: 1rem;
+    margin: 24px 0 8px;
+    color: var(--muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .effective {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin: 0 0 8px;
+  }
+  .intro {
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin: 16px 0 0;
+  }
+  hr {
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin: 36px 0;
+  }
+  p, ul, ol { margin: 10px 0; }
+  ul, ol { padding-left: 22px; }
+  li { margin: 4px 0; }
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(176, 125, 42, 0.3);
+  }
+  a:hover { border-bottom-color: var(--accent); }
+  strong { font-weight: 650; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.9em;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 1px 6px;
+    border-radius: 4px;
+  }
+  footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Wise Tales — Privacy Policy</h1>
+<p class="effective"><strong>Effective date:</strong> June 14, 2026</p>
+<p class="intro">This policy explains what data Wise Tales collects, why, and the choices you have. Wise Tales is a reading app made for children, so this policy is written in plain English on purpose — parents and guardians should be able to read it in a few minutes.</p>
+
+<hr>
+
+<h2>1. Who we are</h2>
+<p>Wise Tales is an iPhone and iPad app for reading bilingual children's folk tales — a side-by-side reader where each sentence shows the source language and the reader's chosen language together, with optional read-aloud narration. It is developed and operated by <strong>Abdullah Al Hadi</strong> ("we", "us"). For the purposes of the EU / UK / EEA General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA/CPRA), Abdullah Al Hadi is the <strong>data controller</strong> for personal data collected through the Wise Tales app. For any privacy questions, contact us at <strong>mukashi.dev@gmail.com</strong>.</p>
+
+<hr>
+
+<h2>2. Data we collect</h2>
+
+<h3>Stays only on your device — never sent anywhere</h3>
+<p>Everything below is stored locally on your device using Apple's SwiftData framework and iOS user defaults. If you have iCloud Backup enabled, Apple includes this data in your encrypted iCloud backup — that backup is between you and Apple; we have no access to it.</p>
+<ul>
+  <li><strong>Reading progress</strong> — which page of which story you've reached, and which stories you've completed.</li>
+  <li><strong>Preferences</strong> — your settings: reading language, translation language, day/night appearance, and read-to-me options (narration voice, speed, and so on).</li>
+  <li><strong>Purchase status</strong> — whether the one-time "Unlock all tales" purchase has been made on this device.</li>
+</ul>
+<p>Uninstalling the app removes all of it.</p>
+
+<h3>Sent to Firebase Analytics (Google)</h3>
+<p>We use <strong>Firebase Analytics</strong> from Google to understand which tales readers enjoy, so we can decide what to add or improve. It is configured with a children's app in mind — no ads, no advertising identifiers, no cross-app tracking.</p>
+
+<p><strong>Firebase Analytics</strong> collects:</p>
+<ul>
+  <li>A device identifier scoped to this app only (a Firebase installation ID). It cannot identify the reader across other apps, and it resets when the app is reinstalled.</li>
+  <li>Device type, OS version, app version, language, and country (derived from IP address).</li>
+  <li>Automatic app events — app opens, session starts, and which screens are viewed.</li>
+  <li>Two custom story-engagement events, which send <strong>story identifiers only</strong> — never the story text, the sentences, or the translations:
+    <ul>
+      <li><strong>Story opened</strong> — the story's ID, plus the reading language and translation language currently selected.</li>
+      <li><strong>Story finished</strong> — the story's ID, recorded when the reader reaches the last page.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>We do NOT request App Tracking Transparency permission.</strong> The app does not read your child's advertising identifier (IDFA) — the advertising-identifier component of the analytics SDK is not included in the app, so the IDFA is not accessible to it.</p>
+
+<p><strong>We never set a user ID.</strong> There is no account, no login, and no persistent identity tied to your child across devices.</p>
+
+<p><strong>What we do NOT send:</strong> the contents of any story, the sentences or translations the child reads, contact info, payment info, location, photo library content, microphone input, or any name or personal identifier you or your child enters anywhere. The app does not have a microphone, camera, or photo-library permission at all.</p>
+
+<h3>In-app purchases</h3>
+<p>Wise Tales is free to download, with a few tales free to read and the first page of every other tale free to preview. A single one-time <strong>"Unlock all tales"</strong> purchase removes the lock, through Apple's standard In-App Purchase system (StoreKit 2). The unlock supports Apple <strong>Family Sharing</strong>.</p>
+<ul>
+  <li><strong>Apple processes the payment.</strong> Your payment method (credit card, Apple Cash, etc.) is never seen by the app or by us. Apple charges your Apple ID directly.</li>
+  <li><strong>What the app stores locally:</strong> that the unlock was purchased, which powers the "unlocked" state on this device.</li>
+  <li><strong>We send no purchase, price, receipt, or payment information</strong> to Firebase or anywhere else.</li>
+  <li><strong>Restoring purchases.</strong> If you reinstall the app or use a new device, <strong>Restore Purchases</strong> asks Apple's servers (not ours) which products are tied to your Apple ID and re-unlocks the appropriate content. We don't keep our own purchase database — Apple is the source of truth.</li>
+</ul>
+
+<hr>
+
+<h2>3. Permissions the app asks for</h2>
+<p>Wise Tales requests <strong>no special permissions</strong>. It does not access the camera, microphone, photo library, contacts, location, motion data, or notifications. Read-aloud narration uses Apple's on-device speech synthesizer and needs no permission; it can keep playing while the screen is locked (background audio), but this involves no recording and no microphone.</p>
+
+<hr>
+
+<h2>4. How we use this data</h2>
+<ul>
+  <li><strong>Local data</strong> (reading progress, preferences, purchase status) powers the app's features for the reader — picking up where they left off, applying their settings, and unlocking purchased content. It is not used for anything else.</li>
+  <li><strong>Firebase Analytics</strong> tells us, in aggregate, which tales are opened and finished and in which languages — so we can decide which stories and features to add, fix, or improve. We look at aggregate counts, not at individual users.</li>
+</ul>
+<p>We do not sell your or your child's personal information, and we do not share it for cross-context behavioral advertising (as those terms are defined under the California Consumer Privacy Act). We do not share data with advertisers, and we do not build profiles across other apps.</p>
+
+<hr>
+
+<h2>5. Children's privacy (COPPA)</h2>
+<p><strong>Wise Tales is directed to children, and we treat all users as if they were under 13.</strong> This affects everything in this policy:</p>
+<ul>
+  <li><strong>No advertising.</strong> The app contains no ads and is not integrated with any ad network.</li>
+  <li><strong>No ad personalization or ad tracking.</strong> The app does not read the advertising identifier (IDFA) and does not request App Tracking Transparency.</li>
+  <li><strong>No persistent user identity.</strong> We do not collect a name, email, phone number, address, photo, or any other directly-identifying information from the child. We never set a user ID. The Firebase installation ID is a per-install random identifier that resets when the app is reinstalled.</li>
+  <li><strong>Erasing data.</strong> Because we don't tie analytics data to an identifiable child, the most reliable erasure is uninstalling the app — which invalidates the Firebase installation ID and removes all local data. Parents and guardians can also email <strong>mukashi.dev@gmail.com</strong> with any access or deletion request.</li>
+  <li><strong>In-app purchases gated by Apple's parental controls.</strong> All purchases go through Apple's standard In-App Purchase flow, so they're subject to whatever parental controls you've configured on the device — including <strong>Ask to Buy</strong> (Family Sharing) and <strong>Screen Time &rarr; Content &amp; Privacy Restrictions &rarr; iTunes &amp; App Store Purchases</strong>. We do not have a separate purchase flow that bypasses these controls.</li>
+  <li><strong>No data brokers.</strong> The only third party that processes data from this app is Firebase (Google), described in Section 6.</li>
+</ul>
+
+<hr>
+
+<h2>6. Third parties</h2>
+<p>The only third-party service the app communicates with is <strong>Firebase</strong>, operated by Google LLC. Google processes Analytics data as our service provider, under the <a href="https://firebase.google.com/terms/data-processing-terms">Firebase Data Processing and Security Terms</a>. Google's own privacy practices are covered by the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+<p>Google primarily processes this data on servers located in the <strong>United States</strong>. For users in the EEA, UK, or Switzerland, international transfers rely on Google's Data Processing and Security Terms, which incorporate the European Commission's Standard Contractual Clauses and the UK International Data Transfer Addendum.</p>
+<p>No other third-party analytics, advertising, or tracking SDK is bundled in the app.</p>
+
+<hr>
+
+<h2>7. How long we keep it</h2>
+<ul>
+  <li><strong>Local data</strong> — kept on your device until you delete it or uninstall the app.</li>
+  <li><strong>Firebase Analytics</strong> — Google retains event-level data for <strong>14 months</strong> (Firebase's default), after which older events are aggregated or dropped.</li>
+</ul>
+
+<hr>
+
+<h2>8. Your rights and choices</h2>
+<ul>
+  <li><strong>Erase reading data</strong> — uninstalling the app removes all local data and invalidates the Firebase installation ID.</li>
+  <li><strong>Turn off analytics system-wide</strong> — iOS <strong>Settings &rarr; Privacy &amp; Security &rarr; Analytics &amp; Improvements &rarr; Share iPhone Analytics</strong>. You can also prevent all analytics by uninstalling the app.</li>
+  <li><strong>Access or erase your or your child's data</strong> under GDPR (EEA, UK), CCPA/CPRA (California), or similar laws — email <strong>mukashi.dev@gmail.com</strong>. Because we don't tie analytics data to a persistent identity, the most reliable erasure is uninstalling the app, which invalidates the Firebase installation ID.</li>
+  <li><strong>Lodge a complaint</strong> — if you're in the EEA, UK, or Switzerland and believe we're mishandling your data, you have the right to complain to your local data protection authority. We'd appreciate the chance to address your concern first — email <strong>mukashi.dev@gmail.com</strong> and we'll respond within 30 days.</li>
+</ul>
+
+<hr>
+
+<h2>9. Security</h2>
+<ul>
+  <li>Local data is stored using iOS's standard app sandbox protections.</li>
+  <li>Data sent to Firebase travels over HTTPS (TLS).</li>
+  <li>We cannot guarantee perfect security — no one can. If we become aware of a breach that affects your data, we will notify you as required by applicable law.</li>
+</ul>
+
+<hr>
+
+<h2>10. Changes to this policy</h2>
+<p>If we change this policy, the new version will replace this page at <strong>https://hadicuet.github.io/wisetales-legal/</strong> and the "Effective date" at the top will be updated. Material changes (e.g. a new third-party service, a new category of data) will be called out in the app's release notes.</p>
+
+<hr>
+
+<h2>11. Contact us</h2>
+<p>Questions, requests, or complaints: <strong>mukashi.dev@gmail.com</strong>.</p>
+
+<footer>
+  © Abdullah Al Hadi. Last updated June 14, 2026.
+</footer>
+
+</main>
+</body>
+</html>
