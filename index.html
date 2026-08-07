@@ -102,13 +102,13 @@
 <main>
 
 <h1>Wise Tales — Privacy Policy</h1>
-<p class="effective"><strong>Effective date:</strong> June 14, 2026</p>
+<p class="effective"><strong>Effective date:</strong> August 7, 2026</p>
 <p class="intro">This policy explains what data Wise Tales collects, why, and the choices you have. Wise Tales is a reading app made for children, so this policy is written in plain English on purpose — parents and guardians should be able to read it in a few minutes.</p>
 
 <hr>
 
 <h2>1. Who we are</h2>
-<p>Wise Tales is an iPhone and iPad app for reading bilingual children's folk tales — a side-by-side reader where each sentence shows the source language and the reader's chosen language together, with optional read-aloud narration. It is developed and operated by <strong>Abdullah Al Hadi</strong> ("we", "us"). For the purposes of the EU / UK / EEA General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA/CPRA), Abdullah Al Hadi is the <strong>data controller</strong> for personal data collected through the Wise Tales app. For any privacy questions, contact us at <strong>mukashi.dev@gmail.com</strong>.</p>
+<p>Wise Tales is an iPhone and iPad app for reading illustrated folk tales to children — one sentence at a time, in a single language chosen from 13, with optional read-aloud narration. The tales themselves work fully offline. It is developed and operated by <strong>Abdullah Al Hadi</strong> ("we", "us"). For the purposes of the EU / UK / EEA General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA/CPRA), Abdullah Al Hadi is the <strong>data controller</strong> for personal data collected through the Wise Tales app. For any privacy questions, contact us at <strong>mukashi.dev@gmail.com</strong>.</p>
 
 <hr>
 
@@ -118,53 +118,73 @@
 <p>Everything below is stored locally on your device using Apple's SwiftData framework and iOS user defaults. If you have iCloud Backup enabled, Apple includes this data in your encrypted iCloud backup — that backup is between you and Apple; we have no access to it.</p>
 <ul>
   <li><strong>Reading progress</strong> — which page of which story you've reached, and which stories you've completed.</li>
-  <li><strong>Preferences</strong> — your settings: reading language, translation language, day/night appearance, and read-to-me options (narration voice, speed, and so on).</li>
-  <li><strong>Purchase status</strong> — whether the one-time "Unlock all tales" purchase has been made on this device.</li>
+  <li><strong>Preferences</strong> — your settings: the app's language (which sets both the story text and the app's own wording), day/night appearance, and read-to-me options (narration voice, speed, sleep timer, and how words are highlighted).</li>
+  <li><strong>Subscription status</strong> — whether a Wise Tales Plus subscription, or the earlier one-time unlock, is active on this device.</li>
+  <li><strong>App bookkeeping</strong> — which free tales have already been opened (so that a change to the free selection never takes back a tale a child is part-way through), whether the introduction has been seen, and whether the occasional "Enjoying Wise Tales?" prompt and the one-time subscription offer have already appeared.</li>
 </ul>
 <p>Uninstalling the app removes all of it.</p>
 
-<h3>Sent to Firebase Analytics (Google)</h3>
-<p>We use <strong>Firebase Analytics</strong> from Google to understand which tales readers enjoy, so we can decide what to add or improve. It is configured with a children's app in mind — no ads, no advertising identifiers, no cross-app tracking.</p>
+<h3>Sent to Firebase (Google)</h3>
+<p>The app uses three Firebase services from Google. Each is described below. All of them are configured with a children's app in mind — no ads, no advertising identifiers, no cross-app tracking.</p>
 
-<p><strong>Firebase Analytics</strong> collects:</p>
+<p><strong>Firebase Analytics</strong> helps us understand which tales readers enjoy and whether the subscription screen makes sense, so we can decide what to add or improve. It collects:</p>
 <ul>
   <li>A device identifier scoped to this app only (a Firebase installation ID). It cannot identify the reader across other apps, and it resets when the app is reinstalled.</li>
   <li>Device type, OS version, app version, language, and country (derived from IP address).</li>
   <li>Automatic app events — app opens, session starts, and which screens are viewed.</li>
-  <li>Two custom story-engagement events, which send <strong>story identifiers only</strong> — never the story text, the sentences, or the translations:
+  <li>A small set of custom events, which send <strong>identifiers and counts only</strong> — never the story text, and never any payment detail:
     <ul>
-      <li><strong>Story opened</strong> — the story's ID, plus the reading language and translation language currently selected.</li>
+      <li><strong>Story opened</strong> — the story's ID and the language it's being read in.</li>
       <li><strong>Story finished</strong> — the story's ID, recorded when the reader reaches the last page.</li>
+      <li><strong>Subscription screen shown / dismissed</strong> — what raised the screen (for example: the introduction, a locked tale, the settings page), how many seconds it stayed open, and which plan was highlighted when it closed.</li>
+      <li><strong>Purchase started / purchase result</strong> — which plan was chosen (monthly or yearly), and how Apple's payment sheet resolved (completed, cancelled, or pending).</li>
     </ul>
   </li>
 </ul>
 
+<p><strong>Firebase Cloud Messaging</strong> delivers the app's occasional notifications — a new tale has arrived, and now and then a note about Wise Tales Plus.</p>
+<ul>
+  <li><strong>We store no device tokens</strong> — not on your device, not on a server. We have no user database.</li>
+  <li>Every message is addressed to a <strong>topic</strong>, not to a person. Your device joins at most two: one for the language the app is set to, and — only while the library is still locked — one for readers who haven't subscribed. That membership tells Google's delivery service the app's language and whether the tales are unlocked, and nothing else. It says nothing about which tales are read.</li>
+  <li>Because we send to topics, <strong>we cannot target an individual reader.</strong> Everyone on a topic gets the same message.</li>
+  <li>To deliver a notification at all, Google issues a registration token for this app installation. It is per-install and resets when the app is reinstalled.</li>
+  <li>Notifications are optional — see Section 3.</li>
+</ul>
+
+<p><strong>Firebase Remote Config</strong> tells the app which tales are currently free to read. At launch the app asks Firebase for that list; the request carries the installation ID and standard device information, and <strong>no reading data</strong>. If the request fails, the list built into the app is used instead — so the app works the same with no network at all.</p>
+
 <p><strong>We do NOT request App Tracking Transparency permission.</strong> The app does not read your child's advertising identifier (IDFA) — the advertising-identifier component of the analytics SDK is not included in the app, so the IDFA is not accessible to it.</p>
 
-<p><strong>We never set a user ID.</strong> There is no account, no login, and no persistent identity tied to your child across devices.</p>
+<p><strong>We never set a user ID.</strong> There is no account and no login. The identifiers described above are per-installation and random; they are not tied to a name, an email, or an Apple ID, and they reset when the app is reinstalled.</p>
 
-<p><strong>What we do NOT send:</strong> the contents of any story, the sentences or translations the child reads, contact info, payment info, location, photo library content, microphone input, or any name or personal identifier you or your child enters anywhere. The app does not have a microphone, camera, or photo-library permission at all.</p>
+<p><strong>What we do NOT send:</strong> the contents of any story, the sentences the child reads, contact info, payment info, receipts, prices, Apple ID details, location, photo library content, microphone input, or any name or personal identifier. The app does not have a microphone, camera, or photo-library permission at all.</p>
 
-<h3>In-app purchases</h3>
-<p>Wise Tales is free to download, with a few tales free to read and the first page of every other tale free to preview. A single one-time <strong>"Unlock all tales"</strong> purchase removes the lock, through Apple's standard In-App Purchase system (StoreKit 2). The unlock supports Apple <strong>Family Sharing</strong>.</p>
+<h3>Subscriptions and purchases</h3>
+<p>Wise Tales is free to download. A selection of tales is free to read in full, and every other tale's first page is free to preview.</p>
+<p><strong>Wise Tales Plus</strong> opens the whole library. It is an auto-renewing subscription — <strong>monthly or yearly</strong> — sold through Apple's standard In-App Purchase system (StoreKit 2). It renews until it is cancelled, and it can be cancelled at any time in <strong>Settings &rarr; your Apple Account &rarr; Subscriptions</strong> on your device.</p>
+<p>Readers who bought the earlier one-time <strong>"Unlock all tales"</strong> purchase keep full access permanently, at no further cost. That product is no longer sold, but it is still honoured.</p>
 <ul>
-  <li><strong>Apple processes the payment.</strong> Your payment method (credit card, Apple Cash, etc.) is never seen by the app or by us. Apple charges your Apple ID directly.</li>
-  <li><strong>What the app stores locally:</strong> that the unlock was purchased, which powers the "unlocked" state on this device.</li>
-  <li><strong>We send no purchase, price, receipt, or payment information</strong> to Firebase or anywhere else.</li>
-  <li><strong>Restoring purchases.</strong> If you reinstall the app or use a new device, <strong>Restore Purchases</strong> asks Apple's servers (not ours) which products are tied to your Apple ID and re-unlocks the appropriate content. We don't keep our own purchase database — Apple is the source of truth.</li>
+  <li><strong>Apple processes the payment.</strong> Your payment method (credit card, Apple Cash, etc.) is never seen by the app or by us. Apple charges your Apple Account directly.</li>
+  <li><strong>What the app stores locally:</strong> whether access is currently active, which powers the "unlocked" state on this device.</li>
+  <li><strong>We send no price, receipt, or payment information</strong> to Firebase or anywhere else. The purchase events described above record only which plan was chosen and whether Apple's sheet completed.</li>
+  <li><strong>Restoring purchases.</strong> If you reinstall the app or use a new device, <strong>Restore Purchases</strong> asks Apple's servers (not ours) what is tied to your Apple Account and restores access. We don't keep our own purchase database — Apple is the source of truth.</li>
+  <li><strong>Refunds</strong> are handled by Apple, at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</li>
 </ul>
 
 <hr>
 
 <h2>3. Permissions the app asks for</h2>
-<p>Wise Tales requests <strong>no special permissions</strong>. It does not access the camera, microphone, photo library, contacts, location, motion data, or notifications. Read-aloud narration uses Apple's on-device speech synthesizer and needs no permission; it can keep playing while the screen is locked (background audio), but this involves no recording and no microphone.</p>
+<p><strong>Notifications are the only permission Wise Tales asks for.</strong> During the app's introduction it explains what the notifications are for and then lets iOS ask your permission. Declining changes nothing else about the app — every tale, the narration, and the settings all work exactly the same. You can change your mind at any time in <strong>iOS Settings &rarr; Notifications &rarr; Wise Tales</strong>, or turn notifications off there entirely.</p>
+<p>The app does <strong>not</strong> access the camera, microphone, photo library, contacts, location, or motion data. Read-aloud narration uses Apple's on-device speech synthesizer and needs no permission; it can keep playing while the screen is locked (background audio), but this involves no recording and no microphone.</p>
 
 <hr>
 
 <h2>4. How we use this data</h2>
 <ul>
-  <li><strong>Local data</strong> (reading progress, preferences, purchase status) powers the app's features for the reader — picking up where they left off, applying their settings, and unlocking purchased content. It is not used for anything else.</li>
-  <li><strong>Firebase Analytics</strong> tells us, in aggregate, which tales are opened and finished and in which languages — so we can decide which stories and features to add, fix, or improve. We look at aggregate counts, not at individual users.</li>
+  <li><strong>Local data</strong> (reading progress, preferences, subscription status, app bookkeeping) powers the app's features for the reader — picking up where they left off, applying their settings, and unlocking subscribed content. It is not used for anything else.</li>
+  <li><strong>Firebase Analytics</strong> tells us, in aggregate, which tales are opened and finished and in which languages, and whether readers understand the subscription screen — so we can decide which stories and features to add, fix, or improve. We look at aggregate counts, not at individual users.</li>
+  <li><strong>Firebase Cloud Messaging</strong> lets us tell readers about a new tale in their own language, and occasionally about Wise Tales Plus.</li>
+  <li><strong>Firebase Remote Config</strong> lets us change which tales are free without shipping an app update.</li>
 </ul>
 <p>We do not sell your or your child's personal information, and we do not share it for cross-context behavioral advertising (as those terms are defined under the California Consumer Privacy Act). We do not share data with advertisers, and we do not build profiles across other apps.</p>
 
@@ -175,16 +195,17 @@
 <ul>
   <li><strong>No advertising.</strong> The app contains no ads and is not integrated with any ad network.</li>
   <li><strong>No ad personalization or ad tracking.</strong> The app does not read the advertising identifier (IDFA) and does not request App Tracking Transparency.</li>
-  <li><strong>No persistent user identity.</strong> We do not collect a name, email, phone number, address, photo, or any other directly-identifying information from the child. We never set a user ID. The Firebase installation ID is a per-install random identifier that resets when the app is reinstalled.</li>
-  <li><strong>Erasing data.</strong> Because we don't tie analytics data to an identifiable child, the most reliable erasure is uninstalling the app — which invalidates the Firebase installation ID and removes all local data. Parents and guardians can also email <strong>mukashi.dev@gmail.com</strong> with any access or deletion request.</li>
-  <li><strong>In-app purchases gated by Apple's parental controls.</strong> All purchases go through Apple's standard In-App Purchase flow, so they're subject to whatever parental controls you've configured on the device — including <strong>Ask to Buy</strong> (Family Sharing) and <strong>Screen Time &rarr; Content &amp; Privacy Restrictions &rarr; iTunes &amp; App Store Purchases</strong>. We do not have a separate purchase flow that bypasses these controls.</li>
+  <li><strong>No account and no persistent identity for the child.</strong> We do not collect a name, email, phone number, address, photo, or any other directly-identifying information. We never set a user ID. The Firebase installation ID and the notification registration token are per-install random identifiers that reset when the app is reinstalled.</li>
+  <li><strong>Notifications are opt-in and adult-controlled.</strong> They only arrive if someone grants the iOS permission prompt, they are infrequent, and some of them mention Wise Tales Plus. Because every message is sent to a whole language topic, no child can be singled out or targeted individually. Notifications can be switched off at any time in <strong>iOS Settings &rarr; Notifications &rarr; Wise Tales</strong>.</li>
+  <li><strong>Erasing data.</strong> Because we don't tie analytics data to an identifiable child, the most reliable erasure is uninstalling the app — which invalidates the Firebase installation ID and the notification token and removes all local data. Parents and guardians can also email <strong>mukashi.dev@gmail.com</strong> with any access or deletion request.</li>
+  <li><strong>Purchases gated by Apple's parental controls.</strong> All purchases and subscriptions go through Apple's standard In-App Purchase flow, so they're subject to whatever parental controls you've configured on the device — including <strong>Ask to Buy</strong> (Family Sharing) and <strong>Screen Time &rarr; Content &amp; Privacy Restrictions &rarr; iTunes &amp; App Store Purchases</strong>. We do not have a separate purchase flow that bypasses these controls.</li>
   <li><strong>No data brokers.</strong> The only third party that processes data from this app is Firebase (Google), described in Section 6.</li>
 </ul>
 
 <hr>
 
 <h2>6. Third parties</h2>
-<p>The only third-party service the app communicates with is <strong>Firebase</strong>, operated by Google LLC. Google processes Analytics data as our service provider, under the <a href="https://firebase.google.com/terms/data-processing-terms">Firebase Data Processing and Security Terms</a>. Google's own privacy practices are covered by the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+<p>The only third-party service the app communicates with is <strong>Firebase</strong>, operated by Google LLC — specifically Firebase Analytics, Firebase Cloud Messaging, and Firebase Remote Config. Google processes this data as our service provider, under the <a href="https://firebase.google.com/terms/data-processing-terms">Firebase Data Processing and Security Terms</a>. Google's own privacy practices are covered by the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>. Notifications are delivered to your device through <strong>Apple Push Notification service</strong>, which is operated by Apple.</p>
 <p>Google primarily processes this data on servers located in the <strong>United States</strong>. For users in the EEA, UK, or Switzerland, international transfers rely on Google's Data Processing and Security Terms, which incorporate the European Commission's Standard Contractual Clauses and the UK International Data Transfer Addendum.</p>
 <p>No other third-party analytics, advertising, or tracking SDK is bundled in the app.</p>
 
@@ -194,13 +215,17 @@
 <ul>
   <li><strong>Local data</strong> — kept on your device until you delete it or uninstall the app.</li>
   <li><strong>Firebase Analytics</strong> — Google retains event-level data for <strong>14 months</strong> (Firebase's default), after which older events are aggregated or dropped.</li>
+  <li><strong>Notification topic membership</strong> — kept by Firebase for as long as the app is installed. It changes when you change the app's language or subscribe, and it is released when the app is uninstalled.</li>
+  <li><strong>We hold nothing on a server of our own.</strong> There is no Wise Tales account database, purchase database, or device-token database to retain.</li>
 </ul>
 
 <hr>
 
 <h2>8. Your rights and choices</h2>
 <ul>
-  <li><strong>Erase reading data</strong> — uninstalling the app removes all local data and invalidates the Firebase installation ID.</li>
+  <li><strong>Erase reading data</strong> — uninstalling the app removes all local data and invalidates the Firebase installation ID and notification token.</li>
+  <li><strong>Turn off notifications</strong> — <strong>iOS Settings &rarr; Notifications &rarr; Wise Tales</strong>. Nothing else in the app changes.</li>
+  <li><strong>Cancel a subscription</strong> — <strong>Settings &rarr; your Apple Account &rarr; Subscriptions</strong> on your device. Cancelling stops the renewal; access continues until the paid period ends.</li>
   <li><strong>Turn off analytics system-wide</strong> — iOS <strong>Settings &rarr; Privacy &amp; Security &rarr; Analytics &amp; Improvements &rarr; Share iPhone Analytics</strong>. You can also prevent all analytics by uninstalling the app.</li>
   <li><strong>Access or erase your or your child's data</strong> under GDPR (EEA, UK), CCPA/CPRA (California), or similar laws — email <strong>mukashi.dev@gmail.com</strong>. Because we don't tie analytics data to a persistent identity, the most reliable erasure is uninstalling the app, which invalidates the Firebase installation ID.</li>
   <li><strong>Lodge a complaint</strong> — if you're in the EEA, UK, or Switzerland and believe we're mishandling your data, you have the right to complain to your local data protection authority. We'd appreciate the chance to address your concern first — email <strong>mukashi.dev@gmail.com</strong> and we'll respond within 30 days.</li>
@@ -219,6 +244,7 @@
 
 <h2>10. Changes to this policy</h2>
 <p>If we change this policy, the new version will replace this page at <strong>https://hadicuet.github.io/wisetales-legal/</strong> and the "Effective date" at the top will be updated. Material changes (e.g. a new third-party service, a new category of data) will be called out in the app's release notes.</p>
+<p><strong>What changed on August 7, 2026:</strong> the app became monolingual — one chosen language for both the story and the app itself, with the side-by-side translation reader removed; the one-time "Unlock all tales" purchase was replaced by the Wise Tales Plus monthly and yearly subscriptions (the old unlock is still honoured); optional push notifications were added through Firebase Cloud Messaging; Firebase Remote Config was added to manage which tales are free; and the analytics section now also describes the subscription-screen and purchase events.</p>
 
 <hr>
 
@@ -226,7 +252,7 @@
 <p>Questions, requests, or complaints: <strong>mukashi.dev@gmail.com</strong>.</p>
 
 <footer>
-  © Abdullah Al Hadi. Last updated June 14, 2026.
+  © Abdullah Al Hadi. Last updated August 7, 2026.
 </footer>
 
 </main>

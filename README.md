@@ -1,6 +1,6 @@
 # Wise Tales Legal
 
-Legal documents for the **Wise Tales** iOS app — a bilingual folk-tale reader for children, with side-by-side sentences in any pair of 13 languages and read-aloud narration. Companion to [Mukashi Stories](https://github.com/HadiCuet/mukashistories-legal).
+Legal documents for the **Wise Tales** iOS app — an illustrated folk-tale reader for children, one sentence at a time in a single language chosen from 13, with read-aloud narration. Companion to [Mukashi Stories](https://github.com/HadiCuet/mukashistories-legal).
 
 - **Privacy Policy** — <https://hadicuet.github.io/wisetales-legal/>
 - **Support** — <https://hadicuet.github.io/wisetales-legal/support.html>
