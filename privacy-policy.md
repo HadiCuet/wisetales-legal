@@ -20,7 +20,7 @@ Everything below is stored locally on your device using Apple's SwiftData framew
 
 - **Reading progress** — which page of which story you've reached, and which stories you've completed.
 - **Preferences** — your settings: the app's language (which sets both the story text and the app's own wording), day/night appearance, and read-to-me options (narration voice, speed, sleep timer, and how words are highlighted).
-- **Subscription status** — whether a Wise Tales Plus subscription, or the earlier one-time unlock, is active on this device.
+- **Subscription status** — whether a Wise Tales Plus subscription, or a one-time unlock, is active on this device.
 - **App bookkeeping** — which free tales have already been opened (so that a change to the free selection never takes back a tale a child is part-way through), whether the introduction has been seen, and whether the occasional "Enjoying Wise Tales?" prompt and the one-time subscription offer have already appeared.
 
 Uninstalling the app removes all of it.
@@ -62,7 +62,7 @@ Wise Tales is free to download. A selection of tales is free to read in full, an
 
 **Wise Tales Plus** opens the whole library. It is an auto-renewing subscription — **monthly or yearly** — sold through Apple's standard In-App Purchase system (StoreKit 2). It renews until it is cancelled, and it can be cancelled at any time in **Settings → your Apple Account → Subscriptions** on your device.
 
-Readers who bought the earlier one-time **"Unlock all tales"** purchase keep full access permanently, at no further cost. That product is no longer sold, but it is still honoured.
+A one-time **"Unlock all tales"** purchase has also been offered at times, and may be again. Anyone who has bought it keeps full access permanently, at no further cost and with no subscription required — whether or not the one-time option is on sale today.
 
 - **Apple processes the payment.** Your payment method (credit card, Apple Cash, etc.) is never seen by the app or by us. Apple charges your Apple Account directly.
 - **What the app stores locally:** whether access is currently active, which powers the "unlocked" state on this device.
@@ -147,7 +147,7 @@ No other third-party analytics, advertising, or tracking SDK is bundled in the a
 
 If we change this policy, the new version will replace this page at **https://hadicuet.github.io/wisetales-legal/** and the "Effective date" at the top will be updated. Material changes (e.g. a new third-party service, a new category of data) will be called out in the app's release notes.
 
-**What changed on August 7, 2026:** the app became monolingual — one chosen language for both the story and the app itself, with the side-by-side translation reader removed; the one-time "Unlock all tales" purchase was replaced by the Wise Tales Plus monthly and yearly subscriptions (the old unlock is still honoured); optional push notifications were added through Firebase Cloud Messaging; Firebase Remote Config was added to manage which tales are free; and the analytics section now also describes the subscription-screen and purchase events.
+**What changed on August 7, 2026:** the app became monolingual — one chosen language for both the story and the app itself, with the side-by-side translation reader removed; Wise Tales Plus monthly and yearly subscriptions were introduced alongside the one-time "Unlock all tales" purchase, which remains honoured for everyone who has bought it; optional push notifications were added through Firebase Cloud Messaging; Firebase Remote Config was added to manage which tales are free; and the analytics section now also describes the subscription-screen and purchase events.
 
 ---
 
